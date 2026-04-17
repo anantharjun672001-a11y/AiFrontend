@@ -48,10 +48,11 @@ function App() {
       </p>
 
       {/* Language */}
+
       <select
         value={language}
         onChange={(e) => setLanguage(e.target.value)}
-        className="bg-gray-800 p-2 rounded mt-2"
+        className="bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded-lg mt-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
         <option value="javascript">JavaScript</option>
         <option value="python">Python</option>
@@ -64,7 +65,7 @@ function App() {
           setCode("");
           setResult("");
         }}
-        className="mt-2 w-full max-w-3xl bg-red-500 p-2 rounded"
+        className="mt-3 px-4 py-2 bg-red-500 hover:bg-red-600 rounded-lg text-sm self-end"
       >
         Clear
       </button>
