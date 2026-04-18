@@ -24,7 +24,7 @@ function App() {
   const handleLogin = async () => {
   if (!username) return alert("Enter email");
 
-  const res = await axios.post("http://localhost:3000/login", {
+  const res = await axios.post("https://backend-j3lr.onrender.com/login", {
     email: username,
   });
 
@@ -41,7 +41,7 @@ function App() {
     if (!userId) return;
 
     axios
-      .get(`http://localhost:3000/history/${userId}`)
+      .get(`https://backend-j3lr.onrender.com/history/${userId}`)
       .then((res) => setHistory(res.data));
   }, [userId]);
 
@@ -52,7 +52,7 @@ function App() {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:3000/analyze", {
+      const res = await axios.post("https://backend-j3lr.onrender.com/analyze", {
         code,
         language,
         userId,
@@ -61,7 +61,7 @@ function App() {
       setResult(res.data.result);
 
       if (userId) {
-        const h = await axios.get(`http://localhost:3000/history/${userId}`);
+        const h = await axios.get(`https://backend-j3lr.onrender.com/history/${userId}`);
         setHistory(h.data);
       }
     } catch {
@@ -73,12 +73,12 @@ function App() {
 
   /* DELETE */
   const deleteOne = async (id) => {
-    await axios.delete(`http://localhost:3000/history/${id}`);
+    await axios.delete(`https://backend-j3lr.onrender.com/history/${id}`);
     setHistory(history.filter((h) => h._id !== id));
   };
 
   const deleteAll = async () => {
-    await axios.delete(`http://localhost:3000/history/user/${userId}`);
+    await axios.delete(`https://backend-j3lr.onrender.com/history/user/${userId}`);
     setHistory([]);
   };
 
